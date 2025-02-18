@@ -1,0 +1,7 @@
+# dune init proj range
+# OCAMLPARAM: unset
+# Shared cache: enabled-except-user-rules
+# Shared cache location: /Users/atalay/.cache/dune/db
+# Workspace root:
+# /Users/atalay/Masa/BilgisayarBilimi/quant/lrn-ocaml/smallProjects/range
+# Auto-detected concurrency: 8
