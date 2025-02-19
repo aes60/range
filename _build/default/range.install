@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/range/META"
+  "_build/install/default/lib/range/dune-package"
+  "_build/install/default/lib/range/opam"
+]
+bin: [
+  "_build/install/default/bin/range"
+]

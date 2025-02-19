@@ -1,7 +1,17 @@
-# dune init proj range
+# dune exec -- bin/main.ml
 # OCAMLPARAM: unset
 # Shared cache: enabled-except-user-rules
 # Shared cache location: /Users/atalay/.cache/dune/db
 # Workspace root:
 # /Users/atalay/Masa/BilgisayarBilimi/quant/lrn-ocaml/smallProjects/range
 # Auto-detected concurrency: 8
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /Users/atalay/.opam/default/bin/ocamlc.opt -config > /var/folders/yg/gq4t6ykj2k3cb8_ygl98371w0000gn/T/dune_c08d54_output
