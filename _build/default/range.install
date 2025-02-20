@@ -6,3 +6,6 @@ lib: [
 bin: [
   "_build/install/default/bin/range"
 ]
+doc: [
+  "_build/install/default/doc/range/README.md"
+]
