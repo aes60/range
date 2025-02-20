@@ -1,41 +1,51 @@
+(* Q, DO WE REALLY USE VECTORS*)
+(* Q, CAN WE IMPLEMETN IHAT AND JHAT? WHY? *)
 (* open Vector *)
+(* UPDATE -> INTEGRATE fn_check_candle INTO fn_make_candle *)
 
 type candle = {
-price_opn : float;
-price_cls : float;
-price_hi : float;
-price_lo : float;
+prc_opn : float;
+prc_cls : float;
+prc_hi : float;
+prc_lo : float;
+range : string;
+date : string;
 }
 
-let fun_make_candle price_opn price_cls price_hi price_lo = 
-  (* Ensure that high and low prices wrap the open and close prices. *)
-  let actual_hi = max price_hi(max price_opn price_cls) in
-  let actual_lo = min price_lo(min price_opn price_cls) in
-  { price_opn; price_cls; price_hi = actual_hi; price_lo = actual_lo };;
-
-let fun_check_candle candle =
-  if candle.price_hi < candle.price_lo then
+let fn_make_candle prc_opn prc_cls prc_hi prc_lo = 
+  (* Ensure that high and low prcs wrap the open and close prcs. *)
+  let actual_hi = max prc_hi(max prc_opn prc_cls) in
+  let actual_lo = min prc_lo(min prc_opn prc_cls) in
+  { prc_opn; prc_cls; prc_hi = actual_hi; prc_lo = actual_lo };;
+let fn_check_candle candle =
+  if candle.prc_hi < candle.prc_lo then
     false (* Invalid candle *)
-  else if candle.price_opn < 0.0 || candle.price_cls < 0.0 || candle.price_hi < 0.0 || candle.price_lo < 0.0 then
-    false (* Prices cannot be negative*)
+  else if candle.prc_opn < 0.0 || candle.prc_cls < 0.0 || candle.prc_hi < 0.0 || candle.prc_lo < 0.0 then
+    false (* prcs cannot be negative*)
   else
     true (* Valid candle *)
 
-(* Print values of the candlestick *)
-let fun_print_candle candle =
-  match candle with
-  | { price_opn; price_cls; price_hi; price_lo } ->
-    Printf.printf "Open: %.2f\n" price_opn;
-    Printf.printf "Close: %.2f\n" price_cls;
-    Printf.printf "High: %.2f\n" price_hi;
-    Printf.printf "Low: %.2f\n" price_lo;;
+let fn_make_candle prc_opn prc_cls prc_hi prc_lo range date =
+  let for_wrap_hi = max prc_hi(max prc_opn prc_cls) in
+  let for_wrap_lo = max prc_lo(min prc_opn prc_cls) in
+  {prc_opn; prc_cls; prc_hi = actual_hi; prc_lo = for_wrap_lo};;
 
-let test_candle_1 = fun_make_candle 90. 110. 120. 85.
-let test_candle_2 = fun_make_candle 90. 110. 20. 85.
+
+(* Print values of the candlestick *)
+let fn_print_candle candle =
+  match candle with
+  | { prc_opn; prc_cls; prc_hi; prc_lo } ->
+    Printf.printf "Open: %.2f\n" prc_opn;
+    Printf.printf "Close: %.2f\n" prc_cls;
+    Printf.printf "High: %.2f\n" prc_hi;
+    Printf.printf "Low: %.2f\n" prc_lo;;
+
+let test_candle_1 = fn_make_candle 90.0 110.0 120.0 85.0
+let test_candle_2 = fn_make_candle 90.0 10.0 20.0 85.0
 
 let () =
-  if fun_check_candle test_candle_1 then fun_print_candle test_candle_1
+  if fn_check_candle test_candle_1 then fn_print_candle test_candle_1
   else print_endline "err: candle";;
 
-  if fun_check_candle test_candle_2 then fun_print_candle test_candle_1
+  if fn_check_candle test_candle_2 then fn_print_candle test_candle_2
   else print_endline "err: candle";;

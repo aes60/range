@@ -1,4 +1,4 @@
 (executable
  (public_name range)
  (name main)
- (libraries range vector))
+ (libraries candle))
