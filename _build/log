@@ -1,4 +1,4 @@
-# dune exec ./bin/main.ml
+# dune build
 # OCAMLPARAM: unset
 # Shared cache: enabled-except-user-rules
 # Shared cache location: /Users/atalay/.cache/dune/db
@@ -14,4 +14,12 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /Users/atalay/.opam/default/bin/ocamlc.opt -config > /var/folders/yg/gq4t6ykj2k3cb8_ygl98371w0000gn/T/dune_37b62c_output
+$ /Users/atalay/.opam/default/bin/ocamlc.opt -config > /var/folders/yg/gq4t6ykj2k3cb8_ygl98371w0000gn/T/dune_061b9a_output
+$ (cd _build/default && /Users/atalay/.opam/default/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -bin-annot-occurrences -I bin/.main.eobjs/byte -I /Users/atalay/.opam/default/lib/base -I /Users/atalay/.opam/default/lib/base/base_internalhash_types -I /Users/atalay/.opam/default/lib/base/shadow_stdlib -I /Users/atalay/.opam/default/lib/ocaml_intrinsics_kernel -I /Users/atalay/.opam/default/lib/sexplib0 -I lib/.candle.objs/byte -no-alias-deps -opaque -o bin/.main.eobjs/byte/dune__exe__Main.cmi -c -intf bin/main.mli)
+$ (cd _build/default && /Users/atalay/.opam/default/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I /Users/atalay/.opam/default/lib/base -I /Users/atalay/.opam/default/lib/base/base_internalhash_types -I /Users/atalay/.opam/default/lib/base/shadow_stdlib -I /Users/atalay/.opam/default/lib/ocaml_intrinsics_kernel -I /Users/atalay/.opam/default/lib/sexplib0 -I lib/.candle.objs/byte -I lib/.candle.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
+> File "bin/main.ml", line 9, characters 6-19:
+> 9 |       Printf.printf "Candle (%s): Open=%.2f Close=%.2f High=%.2f Low=%.2f at %s\n"
+>           ^^^^^^^^^^^^^
+> Error: Unbound value Printf.printf
+> Hint: Did you mean bprintf or sprintf?
+[2]

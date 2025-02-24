@@ -1,6 +1,7 @@
 (*bin/main.ml*)
 
 open Candle
+open Base
 
 let () =
   match Candle.make_candle 150.0 100.0 152.0 90.0 "7-2-2003" "15m" with
